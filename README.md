@@ -1,13 +1,13 @@
 # Automated Continuous Integration and Deployment System using GitHub Actions and Docker
 
-## 📌 Project Overview
+## Project Overview
 This project implements an automated Continuous Integration and Deployment (CI/CD) system to streamline the software development and delivery process. It uses GitHub Actions to automate the build workflow and Docker to containerize the application, ensuring consistent execution across different environments.
 
 The system automatically triggers whenever code changes are pushed to the GitHub repository, eliminating the need for manual build and deployment steps.
 
 ---
 
-## 🚀 Technologies Used
+## Technologies Used
 - Java (Spring Boot)
 - Git & GitHub
 - GitHub Actions
@@ -16,7 +16,7 @@ The system automatically triggers whenever code changes are pushed to the GitHub
 
 ---
 
-## ⚙️ How the Project Works
+## How the Project Works
 1. A developer pushes code to the GitHub repository.
 2. GitHub Actions automatically triggers the CI/CD workflow.
 3. The application is built using Maven.
@@ -26,12 +26,12 @@ The system automatically triggers whenever code changes are pushed to the GitHub
 
 ---
 
-## 🐳 Docker Integration
+##  Docker Integration
 Docker is used to containerize the application along with its dependencies. This ensures that the application runs consistently across development, testing, and production environments without configuration issues.
 
 ---
 
-## 🔄 CI/CD Pipeline Features
+## CI/CD Pipeline Features
 - Automated build on every code push
 - Automated testing
 - Docker image creation
@@ -40,7 +40,7 @@ Docker is used to containerize the application along with its dependencies. This
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 ├── DemoApplication.java
 ├── DemoApplicationTests.java
 ├── Dockerfile
@@ -51,7 +51,7 @@ Docker is used to containerize the application along with its dependencies. This
 
 
 
-## 🎯 Project Objectives
+## Project Objectives
 - Automate the build and deployment process
 - Reduce manual errors during deployment
 - Ensure consistency across environments
@@ -59,11 +59,11 @@ Docker is used to containerize the application along with its dependencies. This
 
 ---
 
-## 🏢 Real-World Use Case
+## Real-World Use Case
 This CI/CD system reflects real-world DevOps workflows used in software companies where applications are continuously integrated, tested, and deployed whenever changes are made to the codebase.
 
 ---
 
-## ✅ Conclusion
+##  Conclusion
 This project demonstrates how GitHub Actions and Docker can be used together to implement an efficient and automated CI/CD pipeline, improving software delivery speed, reliability, and scalability.
 
