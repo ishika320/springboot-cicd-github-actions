@@ -39,8 +39,9 @@ Docker is used to containerize the application along with its dependencies. This
 - Faster and reliable deployments
 
 ---
+ ## Project Structure
+~~~
 
-## Project Structure
 ├── DemoApplication.java
 ├── DemoApplicationTests.java
 ├── Dockerfile
@@ -49,7 +50,7 @@ Docker is used to containerize the application along with its dependencies. This
 ├── mvnw / mvnw.cmd
 ├── README.md
 
-
+~~~
 
 ## Project Objectives
 - Automate the build and deployment process
