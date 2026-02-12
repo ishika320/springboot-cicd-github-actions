@@ -42,13 +42,37 @@ Docker is used to containerize the application along with its dependencies. This
  ## Project Structure
 ~~~
 
-├── DemoApplication.java
-├── DemoApplicationTests.java
+springboot-cicd-github-actions/
+│
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── demo/
+│   │   │               └── DemoApplication.java
+│   │   │
+│   │   └── resources/
+│   │       └── application.properties
+│   │
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── example/
+│                   └── demo/
+│                       └── DemoApplicationTests.java
+│
 ├── Dockerfile
 ├── pom.xml
-├── application.properties
-├── mvnw / mvnw.cmd
-├── README.md
+├── mvnw
+├── mvnw.cmd
+├── .gitignore
+├── .gitattributes
+└── README.md
 
 ~~~
 
