@@ -8,6 +8,6 @@ public class HelloController {
 
     @GetMapping("/")
     public String home() {
-        return "Application is running successfully using Docker and CI/CD!";
+        return "return "Updated by new developer";";
     }
 }
