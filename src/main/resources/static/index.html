@@ -3,11 +3,7 @@
 <head>
     <title>CI/CD Project Dashboard</title>
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <script src="https://kit.fontawesome.com/4b8b6c9d9f.js" crossorigin="anonymous"></script>
 
     <style>
 
@@ -28,7 +24,6 @@
 
         .container {
             margin-top: 80px;
-            animation: fadeIn 2s ease-in-out;
         }
 
         .status-box {
@@ -38,7 +33,6 @@
             border-radius: 15px;
             width: 400px;
             margin: auto;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
         .status {
@@ -104,17 +98,6 @@
             font-size: 18px;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
     </style>
 </head>
 
@@ -154,34 +137,24 @@
 
 </div>
 
-<!-- Pipeline -->
-
 <h2>CI/CD Pipeline Status</h2>
 
 <div class="pipeline">
-
 <div class="step">✅ Code</div>
 <div class="step">⚙️ Build</div>
 <div class="step">🧪 Test</div>
 <div class="step">🐳 Docker</div>
 <div class="step">🚀 Deploy</div>
-
 </div>
-
-<!-- System Info -->
 
 <h2>System Information</h2>
 
 <div class="info">
-
 <p>Server: Spring Boot</p>
 <p>Port: 8080</p>
 <p>Environment: Development</p>
 <p>Version: 1.0.0</p>
-
 </div>
-
-<!-- Deployment -->
 
 <h2>Deployment Statistics</h2>
 
@@ -223,7 +196,7 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 
-/* Deployment Logic */
+/* Deployment Counter — Manual Only */
 
 let count = 0;
 
@@ -238,20 +211,6 @@ function simulateDeployment() {
         new Date().toLocaleString();
 
 }
-
-/* Auto refresh simulation every 10 seconds */
-
-setInterval(function() {
-
-    count++;
-
-    document.getElementById("deployCount").innerText =
-        count;
-
-    document.getElementById("lastDeploy").innerText =
-        new Date().toLocaleString();
-
-}, 10000);
 
 </script>
 
