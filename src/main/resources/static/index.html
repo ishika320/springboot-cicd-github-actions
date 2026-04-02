@@ -24,7 +24,6 @@
             padding: 20px;
             font-size: 28px;
             font-weight: bold;
-            letter-spacing: 2px;
         }
 
         .container {
@@ -40,11 +39,6 @@
             width: 400px;
             margin: auto;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-        }
-
-        .status-box:hover {
-            transform: scale(1.05);
         }
 
         .status {
@@ -62,31 +56,11 @@
             font-size: 16px;
             border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
         }
 
         button:hover {
             background: #ff9800;
         }
-
-        .icons {
-            font-size: 40px;
-            margin-bottom: 15px;
-            color: #1e90ff;
-        }
-
-        footer {
-            margin-top: 60px;
-            padding: 15px;
-            background: rgba(0,0,0,0.3);
-        }
-
-        .time {
-            margin-top: 10px;
-            font-size: 18px;
-        }
-
-        /* Pipeline */
 
         .pipeline {
             display: flex;
@@ -98,19 +72,10 @@
 
         .step {
             background: #1e90ff;
-            color: white;
             padding: 10px 18px;
             border-radius: 10px;
             font-weight: bold;
-            transition: 0.3s;
         }
-
-        .step:hover {
-            transform: scale(1.1);
-            background: #ff9800;
-        }
-
-        /* System Info */
 
         .info {
             background: white;
@@ -122,12 +87,21 @@
             margin-top: 20px;
         }
 
-        /* Deployment Counter */
-
         #deployCount {
             font-size: 26px;
             font-weight: bold;
             color: #00ff88;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .time {
+            margin-top: 10px;
+            font-size: 18px;
         }
 
         @keyframes fadeIn {
@@ -142,7 +116,6 @@
         }
 
     </style>
-
 </head>
 
 <body>
@@ -154,10 +127,6 @@
 <div class="container">
 
     <div class="status-box">
-
-        <div class="icons">
-            <i class="fas fa-server"></i>
-        </div>
 
         <h2>Application Status</h2>
 
@@ -185,7 +154,7 @@
 
 </div>
 
-<!-- Pipeline Visualization -->
+<!-- Pipeline -->
 
 <h2>CI/CD Pipeline Status</h2>
 
@@ -199,33 +168,37 @@
 
 </div>
 
-<!-- System Information -->
+<!-- System Info -->
 
 <h2>System Information</h2>
 
 <div class="info">
 
 <p>Server: Spring Boot</p>
-
 <p>Port: 8080</p>
-
 <p>Environment: Development</p>
-
 <p>Version: 1.0.0</p>
 
 </div>
 
-<!-- Deployment Counter -->
+<!-- Deployment -->
 
 <h2>Deployment Statistics</h2>
 
 <p>
 Deployments Today:
-<span id="deployCount">1</span>
+<span id="deployCount">0</span>
 </p>
 
-<button onclick="increaseDeploy()">
-➕ Simulate Deployment
+<p>
+Last Deployment:
+<span id="lastDeploy">
+Not deployed yet
+</span>
+</p>
+
+<button onclick="simulateDeployment()">
+🚀 Deploy Application
 </button>
 
 <footer>
@@ -250,14 +223,35 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 
-/* Deployment Counter */
+/* Deployment Logic */
 
-let count = 1;
+let count = 0;
 
-function increaseDeploy() {
+function simulateDeployment() {
+
     count++;
-    document.getElementById("deployCount").innerText = count;
+
+    document.getElementById("deployCount").innerText =
+        count;
+
+    document.getElementById("lastDeploy").innerText =
+        new Date().toLocaleString();
+
 }
+
+/* Auto refresh simulation every 10 seconds */
+
+setInterval(function() {
+
+    count++;
+
+    document.getElementById("deployCount").innerText =
+        count;
+
+    document.getElementById("lastDeploy").innerText =
+        new Date().toLocaleString();
+
+}, 10000);
 
 </script>
 
