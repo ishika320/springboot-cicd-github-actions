@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/4b8b6c9d9f.js" crossorigin="anonymous"></script>
 
     <style>
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
@@ -53,7 +54,7 @@
         }
 
         button {
-            margin-top: 20px;
+            margin-top: 15px;
             padding: 12px 25px;
             border: none;
             background: #1e90ff;
@@ -80,6 +81,55 @@
             background: rgba(0,0,0,0.3);
         }
 
+        .time {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        /* Pipeline */
+
+        .pipeline {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            background: #1e90ff;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .step:hover {
+            transform: scale(1.1);
+            background: #ff9800;
+        }
+
+        /* System Info */
+
+        .info {
+            background: white;
+            color: black;
+            width: 320px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        /* Deployment Counter */
+
+        #deployCount {
+            font-size: 26px;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -89,11 +139,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-
-        .time {
-            margin-top: 10px;
-            font-size: 18px;
         }
 
     </style>
@@ -140,6 +185,49 @@
 
 </div>
 
+<!-- Pipeline Visualization -->
+
+<h2>CI/CD Pipeline Status</h2>
+
+<div class="pipeline">
+
+<div class="step">✅ Code</div>
+<div class="step">⚙️ Build</div>
+<div class="step">🧪 Test</div>
+<div class="step">🐳 Docker</div>
+<div class="step">🚀 Deploy</div>
+
+</div>
+
+<!-- System Information -->
+
+<h2>System Information</h2>
+
+<div class="info">
+
+<p>Server: Spring Boot</p>
+
+<p>Port: 8080</p>
+
+<p>Environment: Development</p>
+
+<p>Version: 1.0.0</p>
+
+</div>
+
+<!-- Deployment Counter -->
+
+<h2>Deployment Statistics</h2>
+
+<p>
+Deployments Today:
+<span id="deployCount">1</span>
+</p>
+
+<button onclick="increaseDeploy()">
+➕ Simulate Deployment
+</button>
+
 <footer>
     © 2026 CI/CD DevOps Project | Powered by Docker & GitHub Actions
 </footer>
@@ -161,6 +249,15 @@ function updateTime() {
 }
 
 setInterval(updateTime, 1000);
+
+/* Deployment Counter */
+
+let count = 1;
+
+function increaseDeploy() {
+    count++;
+    document.getElementById("deployCount").innerText = count;
+}
 
 </script>
 
