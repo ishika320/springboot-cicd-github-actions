@@ -50,11 +50,7 @@
         <scope>runtime</scope>
     </dependency>
 
-    <!-- Email Notification -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-mail</artifactId>
-    </dependency>
+  
 
     <!-- Testing -->
     <dependency>
