@@ -1,3 +1,5 @@
+// EmailService.java
+
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -5,44 +7,17 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-
 @Service
 public class EmailService {
 
-```
-@Autowired
-private JavaMailSender mailSender;
+    @Autowired
+    private JavaMailSender mailSender;
 
-public void sendDeploymentEmail() {
-
-    try {
-
+    public void sendEmail(String to, String subject, String body) {
         SimpleMailMessage message = new SimpleMailMessage();
-
-        message.setTo("ishikagujjar21@gmail.com");
-
-        message.setSubject("Deployment Successful");
-
-        message.setText(
-                "Your application was deployed successfully at "
-                        + LocalDateTime.now()
-        );
-
+        message.setTo(to);
+        message.setSubject(subject);
+        message.setText(body);
         mailSender.send(message);
-
-        System.out.println("Email sent successfully");
-
-    } catch (Exception e) {
-
-        // This prevents 500 error if email fails
-        System.out.println("Email failed but deployment continues");
-
-        e.printStackTrace();
-
     }
-
-}
-```
-
 }
