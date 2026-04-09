@@ -10,13 +10,15 @@ import java.time.LocalDateTime;
 @Service
 public class EmailService {
 
-    @Autowired
-    private JavaMailSender mailSender;
+```
+@Autowired
+private JavaMailSender mailSender;
 
-    public void sendDeploymentEmail() {
+public void sendDeploymentEmail() {
 
-        SimpleMailMessage message =
-                new SimpleMailMessage();
+    try {
+
+        SimpleMailMessage message = new SimpleMailMessage();
 
         message.setTo("ishikagujjar21@gmail.com");
 
@@ -28,5 +30,19 @@ public class EmailService {
         );
 
         mailSender.send(message);
+
+        System.out.println("Email sent successfully");
+
+    } catch (Exception e) {
+
+        // This prevents 500 error if email fails
+        System.out.println("Email failed but deployment continues");
+
+        e.printStackTrace();
+
     }
+
+}
+```
+
 }
