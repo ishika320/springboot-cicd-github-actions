@@ -14,6 +14,10 @@ public class HelloController {
     @Autowired
     private DeploymentRepository repository;
 
+    // ADD THIS LINE (Email service)
+    @Autowired
+    private EmailService emailService;
+
     /* Get current status */
 
     @GetMapping("/api/status")
@@ -21,7 +25,8 @@ public class HelloController {
 
         Map<String, Object> response = new HashMap<>();
 
-        List<Deployment> deployments = repository.findAll();
+        List<Deployment> deployments =
+                repository.findAll();
 
         int count = deployments.size();
 
@@ -29,10 +34,10 @@ public class HelloController {
 
         if (count > 0) {
             lastTime =
-                deployments
-                .get(count - 1)
-                .getTime()
-                .toString();
+                    deployments
+                    .get(count - 1)
+                    .getTime()
+                    .toString();
         }
 
         response.put("status", "Running");
@@ -53,7 +58,11 @@ public class HelloController {
                         LocalDateTime.now()
                 );
 
+        // Save deployment to database
         repository.save(deployment);
+
+        // SEND EMAIL NOTIFICATION
+        emailService.sendDeploymentEmail();
 
         List<Deployment> deployments =
                 repository.findAll();
@@ -63,7 +72,7 @@ public class HelloController {
 
         response.put(
                 "message",
-                "Deployment saved to database"
+                "Deployment saved and email sent"
         );
 
         response.put(
